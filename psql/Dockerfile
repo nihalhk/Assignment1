@@ -1,0 +1,24 @@
+# Choosing a base image
+FROM postgres
+
+# copy your application files
+# to the /usr/app directory inside the container
+WORKDIR /usr/app
+COPY . .
+
+# install necessary packages
+RUN npm i
+
+# build your project
+ENV DATABASE_HOST 127.0.0.1
+ENV POSTGRES_USER test
+ENV POSTGRES_PASSWORD test
+ENV POSTGRES_DB csci2690
+    
+RUN npm run build
+
+# here we go
+CMD [ "npm", "start" ]
+
+# docker build -t hello-react .
+# docker run -it --rm -p 3000:3000 --name hello-react-running hello-react
