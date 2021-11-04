@@ -7,16 +7,23 @@ WORKDIR /usr/app
 COPY . .
 
 # install necessary packages
-# RUN npm i
+RUN npm i
 
 # build your project
 ENV DATABASE_HOST 127.0.0.1
 ENV POSTGRES_USER test
-# ENV POSTGRES_PASSWORD test
+ENV POSTGRES_PASSWORD test
 ENV POSTGRES_DB csci2690
 
+
+#docker run --name postgessdb -e POSTGRES_PASSWORD="${POSTGRES_PASSWORD}"-p 4050:4040 -d postgres
+EXPOSE 4050
+RUN npm run build
+CMD [ "npm", "start" ]
+
+
     
-#RUN npm run build
+
 
 # here we go
 #CMD [ "npm", "start" ]
