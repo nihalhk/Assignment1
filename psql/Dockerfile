@@ -11,8 +11,8 @@ COPY . .
 
 # build your project
 ENV DATABASE_HOST 127.0.0.1
-ENV POSTGRES_USER "${POSTGRES_USER}"
-ENV POSTGRES_PASSWORD "${POSTGRES_PASSWORD}"
+ENV POSTGRES_USER test
+# ENV POSTGRES_PASSWORD test
 ENV POSTGRES_DB csci2690
 
     
@@ -26,4 +26,5 @@ ENV POSTGRES_DB csci2690
 
 # docker run --name postgessdb -e POSTGRES_PASSWORD="${POSTGRES_PASSWORD}"-p 4050:4040 -d postgres
 
-
+# mapping -p 
+# psotgress to use 4040  :
